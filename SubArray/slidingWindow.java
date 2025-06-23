@@ -14,7 +14,7 @@ public class slidingWindow{
         for(int i = 0; i<k; i++){
             max_sum += arr[i];
         }
-
+        //comparing sums 
         int window_sum = max_sum;
         for(int i = k; i<n; i++){
             window_sum += arr[i] - arr[i-k];
