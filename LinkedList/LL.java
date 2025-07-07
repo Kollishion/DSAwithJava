@@ -33,7 +33,7 @@ public class LL{
         currNode.next = newNode;
     } 
     //print
-    public static void printList(){
+    public void printList(){
         if(head == null){
             System.out.println("list is empty");
             return;
@@ -50,6 +50,6 @@ public class LL{
         list.addFirst("a");
         list.addFirst("is");
         list.addLast("right?");
-        printList();
+        list.printList();
     }
 }
