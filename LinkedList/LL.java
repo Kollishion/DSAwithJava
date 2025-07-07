@@ -45,11 +45,43 @@ public class LL{
         }
         System.out.print("NULL");
     }
+    //delete first
+    public void deleteFirst(){
+        if(head == null){
+            System.out.println("the list is empty");
+            return;
+        }
+        head = head.next;
+    }
+    //delete last
+    public void deleteLast(){
+        if(head == null){
+            System.out.println("the list is empty");
+        }
+        if(head.next == null){
+            head = null;
+            return;
+        }
+        Node secondLast = head;
+        Node lastNode = head.next;
+        while(lastNode.next != null){
+            lastNode = lastNode.next;
+            secondLast = secondLast.next;
+        }
+        secondLast.next = null;
+    }
     public static void main(String[] args) {
         LL list = new LL();
         list.addFirst("a");
         list.addFirst("is");
         list.addLast("right?");
+        list.addLast("NO!");
+        list.printList();
+        list.deleteFirst();
+        System.out.println("");
+        list.printList();
+        list.deleteLast();
+        System.out.println("");
         list.printList();
     }
 }
