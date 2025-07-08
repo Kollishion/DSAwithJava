@@ -1,5 +1,10 @@
 //O(1) -> for inserting and O(n) in searching an element, Variable size and non-contiguous memory
 public class LL{
+    private int size;
+
+    LL(){
+        this.size = 0;
+    }
     class Node{
         String data;
         Node next;
@@ -7,6 +12,7 @@ public class LL{
         Node(String data){
             this.data = data;
             this.next = null;
+            size++;
         }
     }
     static Node head;
@@ -51,6 +57,7 @@ public class LL{
             System.out.println("the list is empty");
             return;
         }
+        size--;
         head = head.next;
     }
     //delete last
@@ -58,6 +65,7 @@ public class LL{
         if(head == null){
             System.out.println("the list is empty");
         }
+        size--;
         if(head.next == null){
             head = null;
             return;
@@ -69,6 +77,9 @@ public class LL{
             secondLast = secondLast.next;
         }
         secondLast.next = null;
+    }
+    public int getSize(){
+        return size;
     }
     public static void main(String[] args) {
         LL list = new LL();
@@ -83,5 +94,7 @@ public class LL{
         list.deleteLast();
         System.out.println("");
         list.printList();
+        System.out.println();
+        System.out.println(list.getSize());
     }
 }
