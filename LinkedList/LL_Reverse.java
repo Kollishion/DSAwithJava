@@ -1,8 +1,7 @@
-//O(1) -> for inserting and O(n) in searching an element, Variable size and non-contiguous memory
-public class LL{
+public class LL_Reverse{
     private int size;
 
-    LL(){
+    LL_Reverse(){
         this.size = 0;
     }
     class Node{
@@ -15,7 +14,7 @@ public class LL{
             size++;
         }
     }
-    static Node head;
+    Node head;
     //add - first, last
     public void addFirst(String data){
         Node newNode = new Node(data);
@@ -104,23 +103,32 @@ public class LL{
     public int getSize(){
         return size;
     }
+    public void revList(){
+        if(head == null || head.next == null){
+            return;
+        }
+        Node prevNode = head;
+        Node currNode = head.next;
+        while(currNode != null){
+            Node nextNode = currNode.next;
+            currNode.next = prevNode;
+            //update
+            prevNode = currNode;
+            currNode = nextNode;
+        }
+        head.next = null;
+        head = prevNode;
+    }
     public static void main(String[] args) {
-        LL list = new LL();
-        list.addFirst("a");
-        list.addFirst("is");
-        list.addLast("right?");
-        list.addLast("NO!");
-        list.printList();
-        list.deleteFirst();
-        System.out.println("");
-        list.printList();
-        list.deleteLast();
-        System.out.println("");
+        LL_Reverse list = new LL_Reverse();
+        list.addLast("1");
+        list.addLast("2");
+        list.addLast("3");
+        list.addLast("4");
         list.printList();
         System.out.println();
-        System.out.println(list.getSize());
-        list.addInMiddle(1, "YES?");
+        System.out.println("The reverse list is:");
+        list.revList();
         list.printList();
-        System.out.println("");
     }
 }
